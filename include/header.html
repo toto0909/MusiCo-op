@@ -14,7 +14,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet"  href="footer.css" />
     <!-- Font Awesome icon 
     <script
       src="https://kit.fontawesome.com/a06a3b6749.js"
@@ -48,8 +48,12 @@
         height: 40vw;
         margin: 0 auto;
         object-fit: cover;
-        
       }
+      .container-fluid{
+        padding-left: 0%;
+        padding-right: 0%;
+      }
+
     </style>
   </head>
 
@@ -184,7 +188,7 @@
         {
           $(".regular").slick({
             autoplay: true,
-            autoplaySpeed: 3000,
+            autoplaySpeed: 2000,
             dots: true,
             accessibility: true,
             adaptiveHeight: true,
@@ -196,6 +200,20 @@
           });
         });
       </script>
+
+      <!-- コンテンツ -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-8 order-sm-last "> <!--右カラム-->
+            <div class="container-fluid">
+              <a href="#"><img src="src/img/request.png" class="mx-auto d-block img-fluid border"></a>
+            </div>
+          </div> 
+          <div class="col-sm-4 bg-dark"><!--左カラム-->
+            
+          </div>
+        </div>
+      </div>
 
       
 

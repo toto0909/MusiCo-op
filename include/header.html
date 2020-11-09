@@ -60,6 +60,19 @@
       }
       .content-head{
         color: white;
+        font-size: 75%;
+      }
+      .youtube{
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+      }
+      .youtube iframe {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100% !important;
+        height: 100% !important;
       }
 
     </style>
@@ -107,6 +120,9 @@
                 <a class="nav-link" href="#">音楽教室リスト<br />School</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#">演奏動画<br />Movie</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">MusiCo-opについて<br />About us</a>
               </li>
               <li class="nav-item">
@@ -136,21 +152,9 @@
         ></script>
       </header>
 
-      <!-- Youtube動画(スマホだけ) -->
-      <div class="container-fluid justify-content-center">
-        <div class="text-center content-head d-block d-sm-none"> <!--スマホの時表示-->
-          <p>新着動画</p>
-        </div>
-        <div class="d-block d-sm-none">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rNEqrQkzNUs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-
       <!--スライドショー-->
-      <div class="container-fluid mb-2">
-        <div class="text-center content-head d-block d-sm-none mb-0"> <!--スマホの時表示-->
-          <p>新着イベント</p>
-        </div>
+      <div class="container-fluid mb-sm-2 ">
+        
         <div class="sliderArea">
           <div class="regular slider">
             <div>
@@ -203,6 +207,9 @@
             </div>
           </div>
         </div>
+        <div class="content-head d-block d-sm-none text-right">
+          <a href="#">>>イベント情報をもっと見る</a>
+        </div>
       </div>
       <script>
         $(document).ready(() =>
@@ -223,11 +230,23 @@
         });
       </script>
 
+      <!-- Youtube動画(スマホだけ) -->
+      <div class="container-fluid justify-content-center">
+        
+        <div class="youtube d-block d-sm-none mb-sm-2">
+          <iframe width="480" height="270" src="https://www.youtube-nocookie.com/embed/rNEqrQkzNUs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="content-head d-block d-sm-none text-right">
+          <a href="#">>>演奏動画をもっと見る</a>
+        </div>
+      </div>
+
+
       <!-- コンテンツ -->
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-8 order-sm-last mb-2"> <!--右カラム-->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center d-block d-sm-none"> <!--スマホだけバナー出す-->
               <div class="col-sm-6 mr-0 ml-0">
                 <a href="#"><img src="src/img/request.png" class="mx-auto d-block img-fluid border"></a>
               </div>
@@ -251,6 +270,14 @@
                 });
               </script>
             </div>
+
+            <!-- Youtube動画(PCだけ) -->
+            <div class="container-fluid justify-content-center">
+              <div class="youtube d-sm-block d-none mb-sm-3">
+                <iframe width="480" height="270" src="https://www.youtube-nocookie.com/embed/rNEqrQkzNUs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+
             <div class="container-fluid"> <!-- Twitter -->
               <a
                 class="twitter-timeline"
@@ -316,7 +343,7 @@
         <nav
           class="navbar navbar-expand-lg navbar-dark header align-items pt-0"
         >
-          <div class="container d-flex justify-content-center">
+          <div class="container-fluid d-flex justify-content-center">
             <div class="justify-content-center" id="navbarNav1">
               <ul class="navbar-nav">
                 <li class="nav-item">

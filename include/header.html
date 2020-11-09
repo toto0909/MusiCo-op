@@ -34,6 +34,11 @@
       href="slick-1.8.1/slick/slick-theme.css"
     />
     <script src="slick-1.8.1/slick/slick.js"></script>
+    <!-- FullCalender -->
+    <link rel="stylesheet" href="fullcalendar/lib/main.min.css" />
+      <script src="fullcalendar/lib/locales-all.min.js"></script>
+      <script src="fullcalender/lib/moment.min.js"></script>
+      <script src="fullcalendar/lib/main.min.js"></script>
 
     <title>MusiCo-op</title>
     <style>
@@ -52,6 +57,9 @@
       .container-fluid{
         padding-left: 0%;
         padding-right: 0%;
+      }
+      .content-head{
+        color: white;
       }
 
     </style>
@@ -93,7 +101,7 @@
                 <a class="nav-link" href="#">メンバー・団体情報<br />Member</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">公演・指導依頼<br />Request</a>
+                <a class="nav-link" href="#">演奏・指導依頼<br />Request</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">音楽教室リスト<br />School</a>
@@ -128,56 +136,69 @@
         ></script>
       </header>
 
+      <!-- Youtube動画(スマホだけ) -->
+      <div class="container-fluid justify-content-center">
+        <div class="text-center content-head d-block d-sm-none"> <!--スマホの時表示-->
+          <p>新着動画</p>
+        </div>
+        <div class="d-block d-sm-none">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rNEqrQkzNUs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
       <!--スライドショー-->
-      <div class="container-fluid">
+      <div class="container-fluid mb-2">
+        <div class="text-center content-head d-block d-sm-none mb-0"> <!--スマホの時表示-->
+          <p>新着イベント</p>
+        </div>
         <div class="sliderArea">
           <div class="regular slider">
             <div>
               <img
                 src="src/img/img01.png"
-                alt="125naroom"
+                alt="img01"
               />
             </div>
             <div>
               <img
                 src="src/img/img02.png"
-                alt="125naroom"
+                alt="img02"
               />
             </div>
             <div>
               <img
                 src="src/img/img03.png"
-                alt="125naroom"
+                alt="img03"
               />
             </div>
             <div>
               <img
                 src="src/img/img04.png"
-                alt="125naroom"
+                alt="img04"
               />
             </div>
             <div>
               <img
                 src="src/img/img05.png"
-                alt="125naroom"
+                alt="img05"
               />
             </div>
             <div>
               <img
                 src="src/img/img06.png"
-                alt="125naroom"
+                alt="img06"
               />
             </div>
             <div>
               <img
                 src="src/img/img07.png"
-                alt="125naroom"
+                alt="img07"
               />
             </div>
             <div>
               <img
                 src="src/img/img08.png"
-                alt="125naroom"
+                alt="img08"
               />
             </div>
           </div>
@@ -188,8 +209,9 @@
         {
           $(".regular").slick({
             autoplay: true,
-            autoplaySpeed: 2000,
-            dots: true,
+            autoplaySpeed: 1500,
+            dots: false,
+            arrows: false,
             accessibility: true,
             adaptiveHeight: true,
             centerMode: true,
@@ -204,30 +226,47 @@
       <!-- コンテンツ -->
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-8 order-sm-last "> <!--右カラム-->
-            <div class="container-fluid">
-              <a href="#"><img src="src/img/request.png" class="mx-auto d-block img-fluid border"></a>
+          <div class="col-sm-8 order-sm-last mb-2"> <!--右カラム-->
+            <div class="row justify-content-center">
+              <div class="col-sm-6 mr-0 ml-0">
+                <a href="#"><img src="src/img/request.png" class="mx-auto d-block img-fluid border"></a>
+              </div>
+              <div class="col-sm-6 mr-0 ml-0">
+                <a href="#"><img src="src/img/member.png" class="mx-auto d-block img-fluid border"></a>
+              </div>
+            </div>
+            <div class="container-fluid content-head"> <!-- 新着情報 -->
+              新着情報
+            </div>
+            <div class="container-fluid content-head"> <!-- 新着メンバー -->
+              新着メンバー
             </div>
           </div> 
-          <div class="col-sm-4 bg-dark"><!--左カラム-->
-            
+          <div class="col-sm-4"><!--左カラム-->
+            <div class="container"> <!--カレンダー-->
+              <div id="calendar"></div>
+              <script>
+                $(function () {
+                  $("#calendar").fullCalendar();
+                });
+              </script>
+            </div>
+            <div class="container-fluid"> <!-- Twitter -->
+              <a
+                class="twitter-timeline"
+                href="https://twitter.com/MusiCo_op?ref_src=twsrc%5Etfw"
+                >Tweets by MusiCo_op</a
+              >
+              <script
+                async
+                src="https://platform.twitter.com/widgets.js"
+                charset="utf-8"
+              ></script>
+            </div>
           </div>
         </div>
       </div>
 
-      
-
-      <!--Twitter-->
-      <a
-        class="twitter-timeline"
-        href="https://twitter.com/MusiCo_op?ref_src=twsrc%5Etfw"
-        >Tweets by MusiCo_op</a
-      >
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      ></script>
 
       <!-- SNS share button-->
       <div class="share container-fluid header">

@@ -60,7 +60,7 @@
       }
       .content-head{
         color: white;
-        font-size: 75%;
+        font-size: 100%;
       }
       .youtube{
         position: relative;
@@ -73,6 +73,34 @@
         right: 0;
         width: 100% !important;
         height: 100% !important;
+      }
+      .member_table{
+        background-color:white;
+        color: black;
+        font-size: 50%;
+      }
+      .info_date{
+        color:burlywood;
+      }
+      .btn02 {
+        display: inline-block;
+        padding: 2px 4px;
+        background: #3B539A;
+        border-radius: 4px;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 18px;
+        line-heigt: 1.2em;
+        -webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+        box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+        -webkit-transition: .12s;
+        transition: .12s;
+      }
+      .btn02:hover {
+        background: #ffffff;
+        border: solid 2px #113294;
+        color: #3B539A;
+        opacity: 0.8;
       }
 
     </style>
@@ -158,50 +186,54 @@
         <div class="sliderArea">
           <div class="regular slider">
             <div>
+              <a href="#">
               <img
-                src="src/img/img01.png"
+                src="src/img/img_sample01.jpg"
                 alt="img01"
               />
+              </a>
             </div>
             <div>
+              <a href="#">
               <img
-                src="src/img/img02.png"
+                src="src/img/img_sample02.jpg"
                 alt="img02"
               />
+             </a>
             </div>
             <div>
               <img
-                src="src/img/img03.png"
+                src="src/img/img_sample03.png"
                 alt="img03"
               />
             </div>
             <div>
               <img
-                src="src/img/img04.png"
+                src="src/img/img_sample04.png"
                 alt="img04"
               />
             </div>
             <div>
               <img
-                src="src/img/img05.png"
+                src="src/img/img_sample05.jpeg"
                 alt="img05"
               />
             </div>
             <div>
               <img
-                src="src/img/img06.png"
+                src="src/img/img_sample06.jpeg"
                 alt="img06"
               />
             </div>
             <div>
               <img
-                src="src/img/img07.png"
+                src="src/img/img_sample07.jpg"
                 alt="img07"
               />
             </div>
             <div>
               <img
-                src="src/img/img08.png"
+                src="src/img/img_sample08.jpeg"
                 alt="img08"
               />
             </div>
@@ -217,7 +249,7 @@
           $(".regular").slick({
             autoplay: true,
             autoplaySpeed: 1500,
-            dots: false,
+            dots: true,
             arrows: false,
             accessibility: true,
             adaptiveHeight: true,
@@ -234,7 +266,7 @@
       <div class="container-fluid justify-content-center">
         
         <div class="youtube d-block d-sm-none mb-sm-2">
-          <iframe width="480" height="270" src="https://www.youtube-nocookie.com/embed/rNEqrQkzNUs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="480" height="270" src="https://www.youtube-nocookie.com/embed/rNEqrQkzNUs " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="content-head d-block d-sm-none text-right">
           <a href="#">>>演奏動画をもっと見る</a>
@@ -254,11 +286,144 @@
                 <a href="#"><img src="src/img/member.png" class="mx-auto d-block img-fluid border"></a>
               </div>
             </div>
+            <div class="container-fluid content-head"> <!-- 新着メンバー(5人) -->
+              新着メンバー
+              <div class="table-responsive">
+                <table class="table table-condensed table-bordered text-center member_table mb-0 pb-0">
+                  <thead>
+                      <tr>
+                          <th width="20%" height="50%"><a href="#"><img src="src/img/human_sample.jpg" alt="person" class="img-fluid"></a></th>
+                          <th width="20%" height="50%"><a href="#"><img src="src/img/human_sample.jpg" alt="person" class="img-fluid"></a></th>
+                          <th width="20%" height="50%"><a href="#"><img src="src/img/human_sample.jpg" alt="person" class="img-fluid"></a></th>
+                          <th width="20%" height="50%"><a href="#"><img src="src/img/human_sample.jpg" alt="person" class="img-fluid"></a></th>
+                          <th width="20%" height="50%"><a href="#"><img src="src/img/human_sample.jpg" alt="person" class="img-fluid"></a></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                        <td>sample01</td>
+                        <td>sample02</td>
+                        <td>sample03</td>
+                        <td>sample04</td>
+                        <td>sample05</td>
+                    </tr>
+                      <tr>
+                          <td>東京藝術大学</td>
+                          <td>東京藝術大学</td>
+                          <td>京都市立芸術大学</td>
+                          <td>大阪芸術大学</td>
+                          <td>国立音楽大学</td>
+                      </tr>
+                      <tr>
+                          <td>4年</td>
+                          <td>1年</td>
+                          <td>3年</td>
+                          <td>2年</td>
+                          <td>院1年</td>
+                      </tr>
+                      <tr>
+                          <td>琴</td>
+                          <td>ピアノ</td>
+                          <td>ピアノ</td>
+                          <td>フルート</td>
+                          <td>トランペット</td>
+                      </tr>
+                  </tbody>
+               </table>
+              </div>
+              <div class="content-head text-right pt-2 pr-2">
+                <a href="" class="btn02">メンバー・団体情報をもっと見る</a>
+              </div>
+            </div>
+
+          
             <div class="container-fluid content-head"> <!-- 新着情報 -->
               新着情報
-            </div>
-            <div class="container-fluid content-head"> <!-- 新着メンバー -->
-              新着メンバー
+              <div class="table-responsive overflow-auto">
+                <table class="table table-condensed  member_table mb-0 pb-0">
+                  <tbody>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center info_date">2020.12.1</td>
+                      <td class="text-center"><img src="src/img/news.png"></td>
+                      <td><a href="#">【投稿者氏名】見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し</a></td>
+                    </tr>
+                            
+                </tbody>
+                </table>
+              </div>
+              <div class="content-head text-right pt-2 pr-2">
+                <a href="" class="btn02">新着情報をもっと見る</a>
+              </div>
             </div>
           </div> 
           <div class="col-sm-4"><!--左カラム-->
@@ -356,6 +521,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">協賛団体</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">ご寄付のお願い</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">ホームページ制作依頼</a>

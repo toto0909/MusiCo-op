@@ -1,4 +1,6 @@
 <?php
+//DBに接続する
+//DBにアクセスし、結果をテーブルで出力する
 require_once('db.php');
 try {
    $pdo = new PDO($dsn, $user, $password);
@@ -11,4 +13,8 @@ try {
    echo $e->getMessage();
    exit();
 }
+
+header('Content-Type: text/html; charset=utf-8');
+
+
 ?>

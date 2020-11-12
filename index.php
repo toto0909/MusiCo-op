@@ -95,7 +95,7 @@
               </table>
             </div>
             <div class="content-head text-right pt-2 pr-2">
-              <a href="" class="btn02">メンバー・団体情報をもっと見る</a>
+              <a href="/member.php" class="btn02">メンバー・団体情報をもっと見る</a>
             </div>
           </div>
 

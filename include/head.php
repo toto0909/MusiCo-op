@@ -77,5 +77,9 @@
         color: #3B539A;
         opacity: 0.8;
       }
+      .body{
+        background-color:black;
+        color:white;
+      }
 
     </style>

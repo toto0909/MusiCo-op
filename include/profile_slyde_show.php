@@ -1,9 +1,14 @@
-<!--イベント画像8枚取得・格納-->
+<!--プロフィール画像5枚取得・格納-->
 <?php
   //DB接続 
-  //上から8枚画像をarrayに格納
-  //img[0]~img[7]を$分けて格納
+  //設定5枚画像をarrayに格納
+  //img[0]~img[4]を$分けて格納
   //以下でsrcに代入
+  class profile_slyder{
+      function get_images(array $images){
+
+      }
+  }
 ?>
 
 <!--スライドショー-->
@@ -45,28 +50,7 @@
                 alt="img05"
               />
             </div>
-            <div>
-              <img
-                src="src/img/img_sample06.jpeg"
-                alt="img06"
-              />
-            </div>
-            <div>
-              <img
-                src="src/img/img_sample07.jpg"
-                alt="img07"
-              />
-            </div>
-            <div>
-              <img
-                src="src/img/img_sample08.jpeg"
-                alt="img08"
-              />
-            </div>
           </div>
-        </div>
-        <div class="content-head d-block d-sm-none text-right">
-          <a href="#">>>イベント情報をもっと見る</a>
         </div>
 </div>
 <script>
@@ -75,13 +59,13 @@
         $(".regular").slick({
         autoplay: true,
         autoplaySpeed: 1500,
-        dots: true,
+        dots: false,
         arrows: false,
         accessibility: true,
         adaptiveHeight: true,
         centerMode: true,
         variableWidth: true,
-        mobileFirst: true,
+        mobileFirst: false,
         slidesToShow: 1 
         });
     });

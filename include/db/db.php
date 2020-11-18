@@ -25,6 +25,20 @@ class DB{
         return $res;
     }
 
+    //登録ユーザー情報をIDによって取得
+    public function get_personal_by_id(int $id)
+    {
+        $res = [];
+        $sql = "SELECT * FROM personal WHERE musicoop_ID = $id";
+        if ($result = $this->mysqli->query($sql)) {
+            while ($row = $result->fetch_assoc()) {
+                $res[] = $row;
+            }
+            $result->close();
+        }
+        return $res;
+    }
+
     //登録組織情報一覧を全取得
     public function get_organization()
     {

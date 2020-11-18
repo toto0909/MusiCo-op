@@ -9,7 +9,6 @@ $db = new DB();
 
 <!doctype html>
 <html lang="ja">
-
 <head>
     <?php include(dirname(__FILE__) . '/include/head.php'); ?>
     <!--Mojuled head/meta-->
@@ -27,8 +26,10 @@ $db = new DB();
         .menu {
             position: sticky;
             top: 0;
+            background-color: #C0C0C0;
         }
-        .img{
+
+        .img {
             object-fit: cover;
         }
     </style>
@@ -44,12 +45,11 @@ $db = new DB();
         $instrumental = $db->get_instrumental();
         $address_ = $db->get_address();
         ?>
-        <!--1行$even_rows人ずつだす(<$even_rowsの場合$colsの数だけ出す 出す順番はランダム) -->
         <!-- PC版 -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-2">
-                    <div class="menu">
+                <div class="col-sm-2 menu">
+                    <div class="pt-2">
                         <p>メニューバー</p>
                         <p>検索窓</p>
                         <p>大学検索</p>
@@ -67,8 +67,9 @@ $db = new DB();
                             <?php $adr = $value['address_ID'] ?>
                             <?php $ins = $value['instrumental_ID'] ?>
                             <?php $grd = $functions->get_grade($value['grade']); ?>
-                            <div class="col-sm-3 col-md-2 pt-3 pl-0 pr-2">
-                                <a href="#">
+                            <div class="col-sm-3 col-md-2 pt-2 pl-2 pr-0">
+                                <!--各プロフィールページへ情報送る-->
+                                <a href="/profile.php?musicoop_ID=<?php echo $value['musicoop_ID']; ?>">
                                     <div class="card text-center">
                                         <img class="card-img-top img-fluid" src="/src/user/<?php echo $value['img_URL']; ?>" alt="person">
                                         <div class="card-body">

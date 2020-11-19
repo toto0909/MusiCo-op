@@ -19,8 +19,7 @@
     <!--Mojuled header-->
     <?php include(dirname(__FILE__) . '/include/header.php'); ?>
     <main>
-
-
+    
     </main>
     <!--Mojuled footer-->
     <?php include(dirname(__FILE__) . '/include/footer.php'); ?>

@@ -5,7 +5,7 @@ $functions = new Functions();
 //DB接続
 include(dirname(__FILE__) . '/include/db/db.php');
 $db = new DB();
-$musicoop_id = $_GET['musicoop_ID'];
+$musicoop_id = $_GET['musicoop_ID']; //member.phpから_POSTされた情報
 $person_data = $db->get_personal_by_id($musicoop_id); //個人のpersonal行取得
 
 $organization = $db->get_organization();
@@ -40,7 +40,7 @@ $address_ = $db->get_address();
     <main>
         <!--PC版-->
         <?php var_dump($person_data)?>
-        
+
         <div class="container-fluid pt-4">
             <div class="row">
                 <div class="col-md-2 offset-md-5">
@@ -57,9 +57,6 @@ $address_ = $db->get_address();
             <div class="row">
                 <div class="col-sm-4 pl-2"> 
                     <p>プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール</p>
-                    <div class="justify-content-center"> <!-- 画像5枚並べる(後モジュール化)-->
-                        <?php include(dirname(__FILE__) . '/include/gallery.php'); ?>
-                    </div>
                 </div>
                 <div class="col-sm-8">
                     <p>新着情報</p>

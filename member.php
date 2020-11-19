@@ -9,6 +9,7 @@ $db = new DB();
 
 <!doctype html>
 <html lang="ja">
+
 <head>
     <?php include(dirname(__FILE__) . '/include/head.php'); ?>
     <!--Mojuled head/meta-->
@@ -19,16 +20,6 @@ $db = new DB();
     <title>メンバー・団体情報 Member</title>
     <!--set tytle for even pages-->
     <style>
-        .card {
-            color: #000;
-        }
-
-        .menu {
-            position: sticky;
-            top: 0;
-            background-color: #C0C0C0;
-        }
-
         .img {
             object-fit: cover;
         }
@@ -45,94 +36,21 @@ $db = new DB();
         $instrumental = $db->get_instrumental();
         $address_ = $db->get_address();
         ?>
-        <!-- PC版 -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-2 menu">
-                    <div class="pt-2">
-                        <p>メニューバー</p>
-                        <p>検索窓</p>
-                        <p>大学検索</p>
-                        <p>学年検索</p>
-                        <p>性別検索</p>
-                        <p>楽器検索</p>
-                        <p>住所検索</p>
-                        <p>検索ボタン</p>
-                    </div>
-                </div>
-                <div class="col-sm-10 overflow-auto">
-                    <div class="row">
-                        <?php foreach ($personal as $value) : ?>
-                            <?php $org = $value['organization_ID'] ?>
-                            <?php $adr = $value['address_ID'] ?>
-                            <?php $ins = $value['instrumental_ID'] ?>
-                            <?php $grd = $functions->get_grade($value['grade']); ?>
-                            <div class="col-sm-3 col-md-2 pt-2 pl-2 pr-0">
-                                <!--各プロフィールページへ情報送る-->
-                                <a href="/profile.php?musicoop_ID=<?php echo $value['musicoop_ID']; ?>">
-                                    <div class="card text-center">
-                                        <img class="card-img-top img-fluid" src="/src/user/<?php echo $value['img_URL']; ?>" alt="person">
-                                        <div class="card-body">
-                                            <h5 class="card-title pb-1"><?php echo $value['name']; ?></h5>
-                                            <h6 class="card-subtitle text-muted pb-1"><?php echo $organization[$org - 1]['org_name']; ?></h6>
-                                            <h6 class="card-subtitle text-muted pb-1"><?php echo $grd ?></h6>
-                                            <h6 class="card-subtitle text-muted pb-1"><?php echo $instrumental[$ins - 1]['ins_name']; ?></h6>
-                                            <h6 class="card-subtitle text-muted pb-1"><?php echo $address_[$adr - 1]['adr_name']; ?></h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- SP版 -->
-        <div class="container mb-2 mt-2">
-            <div class="members">
+        <div class="container">
+            <div class="row">
                 <?php foreach ($personal as $value) : ?>
                     <?php $org = $value['organization_ID'] ?>
                     <?php $adr = $value['address_ID'] ?>
                     <?php $ins = $value['instrumental_ID'] ?>
                     <?php $grd = $functions->get_grade($value['grade']); ?>
-                    <div class="row">
-                        <div class="col-xs-4 ml-2">
-                            <a href="#"><img src="/src/user/<?php echo $value['img_URL']; ?>" alt="person" width="100" height="100" class="img-fluid"></a>
-                        </div>
-                        <div class="col-xs-8 ml-2 mx-auto">
-                            <div class="container text-center"><?php echo $value['name']; ?></div>
-                            <div class="table-responsive overflow-auto text-center">
-                                <table class="table table-condensed member_table mb-0 pb-0 height=100">
-                                    <tbody>
-                                        <tr>
-                                            <td class="pt-0 pb-0"><?php echo $value['name']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pt-0 pb-0"><?php echo $organization[$org - 1]['org_name']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pt-0 pb-0"><?php echo $grd ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pt-0 pb-0"><?php echo $address_[$adr - 1]['adr_name']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pt-0 pb-0"><?php
-                                                                    if ($value['sex'] == 0) {
-                                                                        echo '男性';
-                                                                    } else {
-                                                                        echo '女性';
-                                                                    }
-                                                                    ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pt-0 pb-0"><?php echo $instrumental[$ins - 1]['ins_name']; ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="col-lg-2 text-center">
+                        <img class="rounded-circle img-fluid" src="/src/user/<?php echo $value['img_URL']; ?>" alt="member img" width="140" height="140">
+                        <h2><?php echo $value['name']; ?></h2>
+                        <h5><?php echo $organization[$org - 1]['org_name']; ?></h5>
+                        <h6><?php echo $instrumental[$ins - 1]['ins_name']; ?></h6>
+                        <h6><?php echo $address_[$adr - 1]['adr_name']; ?></h6>
+                        <p><a class="btn btn-secondary" href="/profile.php?musicoop_ID=<?php echo $value['musicoop_ID']; ?>" role="button">プロフィール&raquo;</a></p>
                     </div>
                 <?php endforeach; ?>
             </div>

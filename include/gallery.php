@@ -1,6 +1,9 @@
 <!-- 画像5枚のギャラリー(レスポンシブ)作成-->
 <?php
     //画像5枚とってくる img01~05へ
+    //必要script
+    // 
+    // <script type="text/javascript" src="js/galleria.min.js"></script>
 ?>
 
 <div id="gallery">

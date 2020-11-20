@@ -1,3 +1,8 @@
+<?PHP
+ini_set( "display_errors", On );
+error_reporting( E_ALL );
+?>
+
 <?php
 //Functions
 include(dirname(__FILE__) . '/include/functions.php');
@@ -30,12 +35,6 @@ $grd = $functions->get_grade($person_data['grade']);
     <!--JavaScript/jQuery read-->
     <title><?php echo $person_data['name']; ?></title>  <!--PHPでユーザー名代入=ページタイトル-->
     <!--set tytle for even pages-->
-    <style>
-        .top{
-            background-color: white;
-            color: black;
-        }
-    </style>
 </head>
 
 <body>

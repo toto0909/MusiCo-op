@@ -12,7 +12,7 @@ class DB{
     }
 
     //登録ユーザー一覧を全取得
-    public function get_personal()
+    public function get_personal_list()
     {
         $res = [];
         $sql = "SELECT * FROM personal";
@@ -36,7 +36,11 @@ class DB{
             }
             $result->close();
         }
-        return $res;
+        if(count($res) != 1){
+            return null;
+        }else{
+            return $res[0];
+        }
     }
 
     //登録組織情報一覧を全取得
@@ -95,34 +99,5 @@ class DB{
         return $res;
     }
 
-    //musicoop_IDを入力してpersonal情報を1行($info)取得する
-    public function get_by_musicoop_id($musicoop_ID, $info)
-    {
-        
-        $sql = "SELECT * FROM personal WHERE id = $musicoop_ID";
-        
-        // クエリを実行する
-        $result = $this->mysqli->query($sql);
-
-        // クエリ実行に成功したら
-        if ($result) {
-            // クエリ実行結果から1行取得する
-            $row = $result->fetch_assoc();
-
-            $array = $row[$info];
-            //var_dump($array);
-            print($array);
-
-            // クエリ実行結果を破棄する
-            $result->close();
-
-            // クエリ実行結果から1行取得できていたら、結果を返す
-            if ($row) {
-                return $row;
-            }
-        }
-    }
+    
 }
-
-?>
-

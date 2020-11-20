@@ -31,7 +31,7 @@ $db = new DB();
     <?php include(dirname(__FILE__) . '/include/header.php'); ?>
     <main>
         <?php
-        $personal = $db->get_personal();
+        $person_list = $db->get_personal_list();
         $organization = $db->get_organization();
         $instrumental = $db->get_instrumental();
         $address_ = $db->get_address();
@@ -39,7 +39,7 @@ $db = new DB();
 
         <div class="container">
             <div class="row">
-                <?php foreach ($personal as $value) : ?>
+                <?php foreach ($personal_list as $value) : ?>
                     <?php $org = $value['organization_ID'] ?>
                     <?php $adr = $value['address_ID'] ?>
                     <?php $ins = $value['instrumental_ID'] ?>

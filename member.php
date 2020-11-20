@@ -45,9 +45,9 @@ $db = new DB();
                     <?php $ins = $value['instrumental_ID'] ?>
                     <?php $grd = $functions->get_grade($value['grade']); ?>
                     <div class="col-lg-2 text-center">
-                        <img class="rounded-circle img-fluid" src="/src/user/<?php echo $value['img_URL']; ?>" alt="member img" width="140" height="140">
-                        <h2><?php echo $value['name']; ?></h2>
-                        <h5><?php echo $organization[$org - 1]['org_name']; ?></h5>
+                        <img class="img-fluid" src="/src/user/<?php echo $value['img_URL']; ?>" alt="member img" width="140" height="140">
+                        <h5><?php echo $value['name']; ?></h5>
+                        <h6><?php echo $organization[$org - 1]['org_name']; ?></h6>
                         <h6><?php echo $instrumental[$ins - 1]['ins_name']; ?></h6>
                         <h6><?php echo $address_[$adr - 1]['adr_name']; ?></h6>
                         <p><a class="btn btn-secondary" href="/profile.php?musicoop_ID=<?php echo $value['musicoop_ID']; ?>" role="button">プロフィール&raquo;</a></p>

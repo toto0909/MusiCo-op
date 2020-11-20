@@ -6,11 +6,15 @@ $functions = new Functions();
 include(dirname(__FILE__) . '/include/db/db.php');
 $db = new DB();
 $musicoop_id = $_GET['musicoop_ID']; //member.phpから_POSTされた情報
-$person_data = $db->get_personal_by_id($musicoop_id); //個人のpersonal行取得
-
 $organization = $db->get_organization();
 $instrumental = $db->get_instrumental();
 $address_ = $db->get_address();
+//個人データ取得
+$person_data = $db->get_personal_by_id($musicoop_id); //個人のpersonal行取得
+$org = $person_data['organization_ID'];
+$adr = $person_data['address_ID'];
+$ins = $person_data['instrumental_ID'];
+$grd = $functions->get_grade($person_data['grade']);
 ?>
 
 <!doctype html>
@@ -24,7 +28,7 @@ $address_ = $db->get_address();
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/galleria.min.js"></script>
     <!--JavaScript/jQuery read-->
-    <title>プロフィール 〇〇</title>  <!--PHPでユーザー名代入-->
+    <title><?php echo $person_data['name']; ?></title>  <!--PHPでユーザー名代入=ページタイトル-->
     <!--set tytle for even pages-->
     <style>
         .top{
@@ -38,28 +42,35 @@ $address_ = $db->get_address();
     <!--Mojuled header-->
     <?php include(dirname(__FILE__) . '/include/header.php'); ?>
     <main>
-        <!--PC版-->
-        <?php var_dump($person_data)?>
-
-        <div class="container-fluid pt-4">
+        <!--写真+名前-->
+        <div class="col-lg-2 text-center">
+            <img class="img-fluid" src="/src/user/<?php echo $value['img_URL']; ?>" alt="member img" width="200" height="200">
+            <h3><?php echo $person_data['name']; ?></h3>
+        </div>
+        <!--ギャラリー(jQuery)-->
+        <div class="container text-center">
             <div class="row">
-                <div class="col-md-2 offset-md-5">
-                    <img src="src/user/yuki_takeda.jpeg" alt="person" class="img-fluid">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 offset-md-4 text-center pt-4 pb-4">
-                    <h3>名前</h3>
-                </div>
+            <?php for($i = 1; $i <= 5; $i++){?>
+                <img class="img-fluid" src="/src/user/<?php echo $functions->get_images($person_data["name_E"],$person_data["birthday"]); ?>/<?php echo "img0".$i.".jpg"?>"
+                alt="member img" width="80" height="80">
+            <?php }?>
             </div>
         </div>
+        <!--コンテンツ-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4 pl-2"> 
-                    <p>プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール</p>
+                    <h6>所属　<?php echo $organization[$org - 1]['org_name']; ?></h6>
+                    <h6>楽器　<?php echo $instrumental[$ins - 1]['ins_name']; ?></h6>
+                    <h6>在住　<?php echo $address_[$adr - 1]['adr_name']; ?></h6>
+                    <h6>生年月日　<?php echo $functions->get_birthday($person_data['birthday']); ?></h6>
+                    <p><?php echo $person_data["profile"]?></p>
                 </div>
                 <div class="col-sm-8">
                     <p>新着情報</p>
+                    <?php var_dump($person_data) ?>
+                    <?php print($functions->get_images($person_data["name_E"],$person_data["birthday"]))?>
+                    <?php echo $functions->get_birthday($person_data['birthday']) ?>
                 </div>
             </div>
         </div>

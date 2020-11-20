@@ -39,7 +39,7 @@ $db = new DB();
 
         <div class="container">
             <div class="row">
-                <?php foreach ($personal_list as $value) : ?>
+                <?php foreach ($person_list as $value) : ?>
                     <?php $org = $value['organization_ID'] ?>
                     <?php $adr = $value['address_ID'] ?>
                     <?php $ins = $value['instrumental_ID'] ?>

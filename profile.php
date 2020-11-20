@@ -1,6 +1,6 @@
-<?PHP
-ini_set( "display_errors", On );
-error_reporting( E_ALL );
+<?PHP 
+// ini_set( "display_errors", On );
+// error_reporting( E_ALL );
 ?>
 
 <?php
@@ -42,24 +42,46 @@ $grd = $functions->get_grade($person_data['grade']);
     <?php include(dirname(__FILE__) . '/include/header.php'); ?>
     <main>
         <!--写真+名前-->
-        <div class="col-lg-2 text-center">
-            <img class="img-fluid" src="/src/user/<?php echo $value['img_URL']; ?>" alt="member img" width="200" height="200">
-            <h3><?php echo $person_data['name']; ?></h3>
-        </div>
-        <!--ギャラリー(jQuery)-->
         <div class="container text-center">
+            <div class="">
+                <img class="img-fluid mx-auto d-block" src="/src/user/<?php echo $person_data['img_URL']; ?>" alt="member img" width="200" height="200"><br>
+                <h3><?php echo $person_data['name']; ?></h3><br>
+            </div>
+        </div>
+        <!--ギャラリー(jQuery) PC-->
+        <div class="container text-center pt-5 pb-5 d-sm-block d-none">
             <div class="row">
-            <?php for($i = 1; $i <= 5; $i++){?>
+            <?php for($i = 1; $i <= 4; $i++){?>
+                <div class="col-sm-3">
                 <img class="img-fluid" src="/src/user/<?php echo $functions->get_images($person_data["name_E"],$person_data["birthday"]); ?>/<?php echo "img0".$i.".jpg"?>"
-                alt="member img" width="80" height="80">
+                alt="member img" width="160" height="160">
+                </div>
             <?php }?>
             </div>
         </div>
+        <!--ギャラリー(jQuery) SP-->
+        <div class="container text-center pt-2 pb-2 d-block d-sm-none">
+            <div class="container-fluid content-head">
+                <div class="table-responsive">
+                <table class="table table-condensed text-center">
+                    <thead>
+                    <tr>
+                    <?php for($i = 1; $i <= 4; $i++){?>
+                        <th width="20%" height="50%"><img src="/src/user/<?php echo $functions->get_images($person_data["name_E"],$person_data["birthday"]); ?>/<?php echo "img0".$i.".jpg"?>" alt="img" class="img-fluid"></th>
+                    <?php }?>
+                    </tr>
+                    </thead>
+                </table>
+                </div>
+            </div>
+        </div>
+
         <!--コンテンツ-->
         <div class="container-fluid">
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-sm-4 pl-2"> 
                     <h6>所属　<?php echo $organization[$org - 1]['org_name']; ?></h6>
+                    <h6>学年　<?php echo $functions->get_grade($person_data['grade']);?></h6>
                     <h6>楽器　<?php echo $instrumental[$ins - 1]['ins_name']; ?></h6>
                     <h6>在住　<?php echo $address_[$adr - 1]['adr_name']; ?></h6>
                     <h6>生年月日　<?php echo $functions->get_birthday($person_data['birthday']); ?></h6>

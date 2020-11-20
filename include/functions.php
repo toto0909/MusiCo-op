@@ -45,8 +45,8 @@ class Functions{
     }
     //"xxxx-xx-xx"の文字列を"xxxx年xx月xx日"に変換
     function get_birthday(string $birthday){
-        $birthday = substr_replace($birthday, "年", 1,5);
-        $birthday = substr_replace($birthday, "月", 1,8);
+        $birthday = substr_replace($birthday, "年", 4,1);
+        $birthday = substr_replace($birthday, "月", 9,1);
         return $birthday."日";
     }
 }

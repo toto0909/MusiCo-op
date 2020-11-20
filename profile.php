@@ -54,7 +54,7 @@ $grd = $functions->get_grade($person_data['grade']);
             <?php for($i = 1; $i <= 4; $i++){?>
                 <div class="col-sm-3">
                 <img class="img-fluid" src="/src/user/<?php echo $functions->get_images($person_data["name_E"],$person_data["birthday"]); ?>/<?php echo "img0".$i.".jpg"?>"
-                alt="member img" width="160" height="160">
+                alt="img" width="160" height="160">
                 </div>
             <?php }?>
             </div>
@@ -89,7 +89,7 @@ $grd = $functions->get_grade($person_data['grade']);
                 </div>
                 <div class="col-sm-8">
                     <p>新着情報</p>
-                    <?php var_dump($person_data) ?>
+                    <?php // var_dump($person_data) ?>
                     <?php print($functions->get_images($person_data["name_E"],$person_data["birthday"]))?>
                     <?php echo $functions->get_birthday($person_data['birthday']) ?>
                 </div>

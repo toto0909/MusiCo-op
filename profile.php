@@ -15,12 +15,14 @@ $musicoop_id = $_GET['musicoop_ID']; //member.phpから_POSTされた情報
 $organization = $db->get_organization();
 $instrumental = $db->get_instrumental();
 $address_ = $db->get_address();
+$SNS = $db->get_SNS();
 //個人データ取得
 $person_data = $db->get_personal_by_id($musicoop_id); //個人のpersonal行取得
 $org = $person_data['organization_ID'];
 $adr = $person_data['address_ID'];
 $ins = $person_data['instrumental_ID'];
 $grd = $functions->get_grade($person_data['grade']);
+$sns = $person_data['SNS_ID'];
 ?>
 
 <!doctype html>
@@ -85,15 +87,33 @@ $grd = $functions->get_grade($person_data['grade']);
         <!--コンテンツ-->
         <div class="container-fluid">
             <div class="row text-center">
-                <div class="col-sm-4 pl-2">
+                <div class="col-sm-4 pl-2"> <!-- PC-left SP-top -->
+                    <!--profile-->
                     <h6>所属　<?php echo $organization[$org - 1]['org_name']; ?></h6>
                     <h6>学年　<?php echo $functions->get_grade($person_data['grade']); ?></h6>
                     <h6>楽器　<?php echo $instrumental[$ins - 1]['ins_name']; ?></h6>
                     <h6>在住　<?php echo $address_[$adr - 1]['adr_name']; ?></h6>
                     <h6>生年月日　<?php echo $functions->get_birthday($person_data['birthday']); ?></h6>
                     <p><?php echo $person_data["profile"] ?></p>
+                    <!--twitter 個々のDBからtwitter_URLを取得 twitterをやっていなければ非表示-->
+                    <div class="container-fluid">
+                    <a class="twitter-timeline" 
+                    data-width="650" 
+                    data-height="300" 
+                    data-theme="light" 
+                    href="<?php echo $SNS[$sns-1]['twitter_URL']?>">
+                    <?php if($SNS[$sns-1]['twitter_URL'] != NULL)
+                    {
+                        echo $person_data['name_E'];
+                    }else{
+                        echo '表示するtweetはありません';
+                    }
+                    ?>
+                    </a> 
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-8"> <!-- PC-right SP-bottom -->
                     <p>新着情報</p>
                     <?php // var_dump($person_data) 
                     ?>

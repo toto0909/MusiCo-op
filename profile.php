@@ -1,6 +1,7 @@
 <?PHP
 // ini_set( "display_errors", On );
 // error_reporting( E_ALL );
+//写真拡大jQuery実装
 ?>
 
 <?php
@@ -28,14 +29,14 @@ $grd = $functions->get_grade($person_data['grade']);
 <head>
     <!--Mojuled head/meta-->
     <link rel="stylesheet" type="text/css" href="/css/profile.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
     <!--CSS read-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/galleria.min.js"></script>
-    <!--JavaScript/jQuery read-->
+    
     <title><?php echo $person_data['name']; ?></title>
     <!--PHPでユーザー名代入=ページタイトル-->
     <!--set tytle for even pages-->
     <?php include(dirname(__FILE__) . '/include/head.php'); ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -45,16 +46,18 @@ $grd = $functions->get_grade($person_data['grade']);
         <!--写真+名前-->
         <div class="container text-center">
             <div class="">
-                <img class="img-fluid mx-auto d-block" src="/src/user/<?php echo $person_data['img_URL']; ?>" alt="member img" width="200" height="200"><br>
+            <a href="/src/user/<?php echo $person_data['img_URL']; ?>" data-lightbox="group"><img class="img-fluid mx-auto d-block" src="/src/user/<?php echo $person_data['img_URL']; ?>" alt="member-image" width="240" height="240"></a><br>
                 <h3><?php echo $person_data['name']; ?></h3><br>
             </div>
         </div>
-        <!--ギャラリー(jQuery) PC-->
+        <!--ギャラリー(jQuery) PC--> 
         <div class="container text-center pt-5 pb-5 d-sm-block d-none">
             <div class="row">
                 <?php for ($i = 1; $i <= 4; $i++) { ?>
                     <div class="col-sm-3">
-                        <img class="img-fluid shinomodal_baseimg" src="/src/user/<?php echo $functions->get_images($person_data["name_E"], $person_data["birthday"]); ?>/<?php echo "img0" . $i . ".jpg" ?>" alt="img" width="160" height="160">
+                        <a href="/src/user/<?php echo $functions->get_images($person_data["name_E"], $person_data["birthday"]); ?>/<?php echo "img0" . $i . ".jpg" ?>" data-lightbox="group">
+                            <img class="img-fluid" src="/src/user/<?php echo $functions->get_images($person_data["name_E"], $person_data["birthday"]); ?>/<?php echo "img0" . $i . ".jpg" ?>" alt="img" width="200" height="200">
+                        </a>
                     </div>
                 <?php } ?>
             </div>
@@ -67,8 +70,10 @@ $grd = $functions->get_grade($person_data['grade']);
                         <thead>
                             <tr>
                                 <?php for ($i = 1; $i <= 4; $i++) { ?>
-                                    <th width="20%" height="50%"><img src="/src/user/<?php echo $functions->get_images($person_data["name_E"], $person_data["birthday"]); ?>/<?php echo "img0" . $i . ".jpg" ?>" alt="img" class="img-fluid 
-                        shinomodal_baseimg"></th>
+                                    <th width="20%" height="50%">
+                                        <a href="/src/user/<?php echo $functions->get_images($person_data["name_E"], $person_data["birthday"]); ?>/<?php echo "img0" . $i . ".jpg" ?>" data-lightbox="group"><img src="/src/user/<?php echo $functions->get_images($person_data["name_E"], $person_data["birthday"]); ?>/<?php echo "img0" . $i . ".jpg" ?>" alt="img" class="img-fluid">
+                                        </a>
+                                    </th>
                                 <?php } ?>
                             </tr>
                         </thead>

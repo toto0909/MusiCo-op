@@ -39,6 +39,48 @@ $sns = $person_data['SNS_ID'];
     <!--set tytle for even pages-->
     <?php include(dirname(__FILE__) . '/include/head.php'); ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    <style>
+    .facebook{
+    font-size: 2.2em;
+    color: #1877f2;
+   }
+   .facebook_off{
+    font-size: 2.2em;
+    color: #555555;
+   }
+   .twitter{
+    font-size: 2.2em;
+    color: #1DA1F2;
+   }
+   .twitter_off{
+    font-size: 2.2em;
+    color: #555555;
+   }
+   .instagram{
+    font-size: 2.2em;
+    color: #CF2E92;
+   }
+   .instagram_off{
+    font-size: 2.2em;
+    color: #555555;
+   }
+   .home{
+    font-size: 2.2em;
+    color: #fff; 
+   }
+   .home_off{
+    font-size: 2.2em;
+    color: #555555;
+   }
+   .youtube_on{
+    font-size: 2.2em;
+    color: #DA1725; 
+   }
+   .youtube_off{
+    font-size: 2.2em;
+    color: #555555;
+   }
+    </style>
 </head>
 
 <body>
@@ -50,6 +92,15 @@ $sns = $person_data['SNS_ID'];
             <div class="">
             <a href="/src/user/<?php echo $person_data['img_URL']; ?>" data-lightbox="group"><img class="img-fluid mx-auto d-block" src="/src/user/<?php echo $person_data['img_URL']; ?>" alt="member-image" width="240" height="240"></a><br>
                 <h3><?php echo $person_data['name']; ?></h3><br>
+                <!-- SNSアイコン(NULLなら灰色) -->
+                <?php $twitter="https://twitter.com/MusiCo_op" ?>
+                <div class="">
+                    <a href="<?php echo $SNS[$sns-1]['facebook_URL']?>"><i class="fab fa-facebook-square mr-2 ml-2 mb-2 <?php if($SNS[$sns-1]['facebook_URL'] != NULL){echo "facebook";}else{echo "facebook_off";}?>"></i></a>
+                    <a href="<?php echo $SNS[$sns-1]['twitter_URL']?>"><i class="fab fa-twitter-square mr-2 ml-2 mb-2 <?php if($SNS[$sns-1]['twitter_URL'] != NULL){echo "twitter";}else{echo "twitter_off";}?>"></i></a>
+                    <a href="<?php echo $SNS[$sns-1]['instagram_URL']?>"><i class="fab fa-instagram mr-2 ml-2 mb-2 <?php if($SNS[$sns-1]['instagram_URL'] != NULL){echo "instagram";}else{echo "instagram_off";}?>"></i></a>
+                    <a href="<?php echo $SNS[$sns-1]['youtube_URL']?>"><i class="fab fa-youtube-square mr-2 ml-2 mb-2 <?php if($SNS[$sns-1]['youtube_URL'] != NULL){echo "youtube _on";}else{echo "youtube_off";}?>"></i>
+                    <a href="<?php echo $SNS[$sns-1]['hp_URL']?>"><i class="fas fa-home mr-2 ml-2 mb-2 <?php if($SNS[$sns-1]['hp_URL'] != NULL){echo "home";}else{echo "home_off";}?>"></i></a>
+                </div>
             </div>
         </div>
         <!--ギャラリー(jQuery) PC--> 

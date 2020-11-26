@@ -43,6 +43,41 @@ class DB{
         }
     }
 
+    //登録ユーザー仕事関連情報を取得
+    public function get_job()
+    {
+        $res = [];
+        $sql = "SELECT * FROM job";
+        if ($result = $this->mysqli->query($sql)) {
+            while ($row = $result->fetch_assoc()) {
+                $res[] = $row;
+            }
+            $result->close();
+        }
+        if(count($res) != 1){
+            return null;
+        }else{
+            return $res[0];
+        }
+    }
+
+    public function get_job_by_id($id)
+    {
+        $res = [];
+        $sql = "SELECT * FROM job WHERE job_ID = $id";
+        if ($result = $this->mysqli->query($sql)) {
+            while ($row = $result->fetch_assoc()) {
+                $res[] = $row;
+            }
+            $result->close();
+        }
+        if(count($res) != 1){
+            return null;
+        }else{
+            return $res[0];
+        }
+    }
+
     //登録組織情報一覧を全取得
     public function get_organization()
     {
